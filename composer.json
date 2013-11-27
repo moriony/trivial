@@ -1,0 +1,21 @@
+{
+    "name": "moriony/trivial",
+    "description": "Trivial data manipulators",
+    "keywords": ["trivial", "data", "php", "array"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitaliy Chesnokov",
+            "email": "demateus@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Moriony\\Trivial\\" : "src/"
+        }
+    }
+}
