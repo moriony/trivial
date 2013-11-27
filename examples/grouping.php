@@ -26,5 +26,5 @@ $result = $arrayManipulator->group($array, array(
     }
 ));
 
-var_dump($result);
+print_r($result);
 
