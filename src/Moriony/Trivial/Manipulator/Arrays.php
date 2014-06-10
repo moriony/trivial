@@ -50,4 +50,14 @@ class Arrays
         }
         return $array[rand(0, count($array) - 1)];
     }
+
+    public function randomElements(array $array, $count)
+    {
+        $count = abs($count);
+        $result = [];
+        for ($i = 0; $i < $count; $i++) {
+            $result[] = $this->randomElement($array);
+        }
+        return $result;
+    }
 }

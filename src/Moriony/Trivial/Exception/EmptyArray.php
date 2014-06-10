@@ -4,5 +4,5 @@ namespace Moriony\Trivial\Exception;
 
 class EmptyArray extends Basic
 {
-    protected $message = 'Proxy list is empty';
+    protected $message = 'Empty array';
 }
