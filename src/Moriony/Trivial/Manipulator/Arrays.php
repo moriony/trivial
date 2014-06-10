@@ -3,6 +3,7 @@
 namespace Moriony\Trivial\Manipulator;
 
 use Closure;
+use Moriony\Trivial\Exception\EmptyArray;
 
 class Arrays
 {
@@ -33,5 +34,20 @@ class Arrays
             }
         }
         return $result;
+    }
+
+    /**
+     * Get random array element
+     *
+     * @param array $array
+     * @return mixed
+     * @throws EmptyArray
+     */
+    public function randomElement(array $array)
+    {
+        if (!$array) {
+            throw new EmptyArray;
+        }
+        return $array[rand(0, count($array) - 1)];
     }
 }

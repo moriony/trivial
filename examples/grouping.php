@@ -1,6 +1,6 @@
 <?php
 
-include '../vendor/autoload.php';
+include getcwd() . '../vendor/autoload.php';
 
 $array = array(
     array(
