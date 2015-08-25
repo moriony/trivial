@@ -10,4 +10,9 @@ interface MathInterface
     public function sub($a, $b);
     public function ceil($a);
     public function floor($a);
+    public function eq($a, $b);
+    public function greaterThan($a, $b);
+    public function greaterOrEqualThan($a, $b);
+    public function lessThan($a, $b);
+    public function lessOrEqualThan($a, $b);
 }

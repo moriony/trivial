@@ -33,4 +33,29 @@ class Native implements MathInterface
     {
         return floor($a);
     }
+
+    public function eq($a, $b)
+    {
+        return $a == $b;
+    }
+
+    public function greaterThan($a, $b)
+    {
+        return $a > $b;
+    }
+
+    public function greaterOrEqualThan($a, $b)
+    {
+        return $a >= $b;
+    }
+
+    public function lessThan($a, $b)
+    {
+        return $a < $b;
+    }
+
+    public function lessOrEqualThan($a, $b)
+    {
+        return $a <= $b;
+    }
 }
