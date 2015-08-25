@@ -120,63 +120,63 @@ class NativeTest extends \PHPUnit_Framework_TestCase
 
     public function provideEqualData()
     {
-        return [
-            [1,1],
-            [1,'1']
-        ];
+        return array(
+            array(1,1),
+            array(1,'1')
+        );
     }
 
     public function provideNotEqualData()
     {
-        return [
-            [1,2],
-            [1,'2']
-        ];
+        return array(
+            array(1,2),
+            array(1,'2')
+        );
     }
 
     public function provideGreaterThanData()
     {
-        return [
-            [2,1],
-            [2,'1']
-        ];
+        return array(
+            array(2,1),
+            array(2,'1')
+        );
     }
 
     public function provideGreaterOrEqualThanData()
     {
-        return [
-            [1,1],
-            [1,'1'],
-            [2,1],
-            [2,'1']
-        ];
+        return array(
+            array(1,1),
+            array(1,'1'),
+            array(2,1),
+            array(2,'1')
+        );
     }
 
     public function provideLessThanData()
     {
-        return [
-            [1,2],
-            [1,'2']
-        ];
+        return array(
+            array(1,2),
+            array(1,'2')
+        );
     }
 
     public function provideNotLessThanData()
     {
-        return [
-            [2,1],
-            [2,'1'],
-            [2,2],
-            [2,'2']
-        ];
+        return array(
+            array(2,1),
+            array(2,'1'),
+            array(2,2),
+            array(2,'2')
+        );
     }
 
     public function provideLessOrEqualThanData()
     {
-        return [
-            [1,1],
-            [1,'1'],
-            [1,2],
-            [1,'2']
-        ];
+        return array(
+            array(1,1),
+            array(1,'1'),
+            array(1,2),
+            array(1,'2')
+        );
     }
 }
