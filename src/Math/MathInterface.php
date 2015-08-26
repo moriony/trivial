@@ -8,10 +8,10 @@ interface MathInterface
     public function div($a, $b);
     public function sum($a, $b);
     public function sub($a, $b);
-    public function roundUp($a, $scale = 0);
-    public function roundDown($a, $scale = 0);
-    public function roundHalfUp($a, $scale = 0);
-    public function roundHalfDown($a, $scale = 0);
+    public function roundUp($a, $precision = 0);
+    public function roundDown($a, $precision = 0);
+    public function roundHalfUp($a, $precision = 0);
+    public function roundHalfDown($a, $precision = 0);
     public function eq($a, $b);
     public function greaterThan($a, $b);
     public function greaterOrEqualThan($a, $b);

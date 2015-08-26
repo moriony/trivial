@@ -24,30 +24,30 @@ class Native implements MathInterface
         return $a - $b;
     }
 
-    public function roundUp($a, $scale = 0)
+    public function roundUp($a, $precision = 0)
     {
-        $c = (string) $this->pow(10, $scale);
+        $c = (string) $this->pow(10, $precision);
         $mul = (string) $this->mul($a, $c);
         $ceil = ceil($mul);
         return $this->div($ceil, $c);
     }
 
-    public function roundDown($a, $scale = 0)
+    public function roundDown($a, $precision = 0)
     {
-        $c = (string) $this->pow(10, $scale);
+        $c = (string) $this->pow(10, $precision);
         $mul = (string) $this->mul($a, $c);
         $floor = floor($mul);
         return $this->div($floor, $c);
     }
 
-    public function roundHalfUp($a, $scale = 0)
+    public function roundHalfUp($a, $precision = 0)
     {
-        return round($a, $scale, PHP_ROUND_HALF_UP);
+        return round($a, $precision, PHP_ROUND_HALF_UP);
     }
 
-    public function roundHalfDown($a, $scale = 0)
+    public function roundHalfDown($a, $precision = 0)
     {
-        return round($a, $scale, PHP_ROUND_HALF_DOWN);
+        return round($a, $precision, PHP_ROUND_HALF_DOWN);
     }
 
     public function eq($a, $b)

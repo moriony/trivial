@@ -156,6 +156,13 @@ class NativeTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($expected, $this->math->sqrt($a));
     }
+    /**
+     * @dataProvider providePowData
+     */
+    public function testPow($a, $b, $expected)
+    {
+        $this->assertEquals($expected, $this->math->pow($a, $b));
+    }
 
     public function provideEqualData()
     {
@@ -313,6 +320,18 @@ class NativeTest extends \PHPUnit_Framework_TestCase
             array('1',1),
             array(9,3),
             array('9',3),
+        );
+    }
+
+
+    public function providePowData()
+    {
+        return array(
+            array(1,1,1),
+            array(1,2,1),
+            array(3,2,9),
+            array(-3,2,9),
+            array(5,-1,0.2),
         );
     }
 
