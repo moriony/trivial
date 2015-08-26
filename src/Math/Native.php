@@ -24,14 +24,30 @@ class Native implements MathInterface
         return $a - $b;
     }
 
-    public function ceil($a)
+    public function roundUp($a, $scale = 0)
     {
-        return ceil($a);
+        $c = (string) $this->pow(10, $scale);
+        $mul = (string) $this->mul($a, $c);
+        $ceil = ceil($mul);
+        return $this->div($ceil, $c);
     }
 
-    public function floor($a)
+    public function roundDown($a, $scale = 0)
     {
-        return floor($a);
+        $c = (string) $this->pow(10, $scale);
+        $mul = (string) $this->mul($a, $c);
+        $floor = floor($mul);
+        return $this->div($floor, $c);
+    }
+
+    public function roundHalfUp($a, $scale = 0)
+    {
+        return round($a, $scale, PHP_ROUND_HALF_UP);
+    }
+
+    public function roundHalfDown($a, $scale = 0)
+    {
+        return round($a, $scale, PHP_ROUND_HALF_DOWN);
     }
 
     public function eq($a, $b)
@@ -57,5 +73,31 @@ class Native implements MathInterface
     public function lessOrEqualThan($a, $b)
     {
         return $a <= $b;
+    }
+
+    public function comp($a, $b)
+    {
+        if ($a > $b) {
+            return 1;
+        }
+        if ($a < $b) {
+            return -1;
+        }
+        return 0;
+    }
+
+    public function pow($a, $b)
+    {
+        return pow($a, $b);
+    }
+
+    public function sqrt($a)
+    {
+        return sqrt($a);
+    }
+
+    public function abs($a)
+    {
+        return abs($a);
     }
 }
