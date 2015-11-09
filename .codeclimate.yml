@@ -1,0 +1,6 @@
+languages:
+  PHP: true
+
+exlude_paths:
+  - examples/*
+  - tests/
