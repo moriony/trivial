@@ -12,6 +12,10 @@ matrix:
   allow_failures:
     - php: 7.0
 
+addons:
+  code_climate:
+    repo_token: c21da154ca2c9c9e4199d1aced2c3c687891c3f032bd00dbe036e47d9220a270
+
 
 sudo: false
 
