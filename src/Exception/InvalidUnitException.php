@@ -2,7 +2,7 @@
 
 namespace Moriony\Trivial\Exception;
 
-class InvalidUnit extends \Exception
+class InvalidUnitException extends InvalidArgumentException
 {
     protected $message = 'Invalid unit.';
 }

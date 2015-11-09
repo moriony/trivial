@@ -2,7 +2,7 @@
 
 namespace Moriony\Trivial\Exception;
 
-class EmptyArray extends Basic
+class EmptyArrayException extends \Exception implements BasicExceptionInterface
 {
     protected $message = 'Empty array';
 }

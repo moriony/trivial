@@ -4,12 +4,12 @@ namespace Moriony\Trivial\Math;
 
 class NativeTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var Native */
+    /** @var NativeMath */
     protected $math;
 
     public function setUp()
     {
-        $this->math = new Native();
+        $this->math = new NativeMath();
     }
 
     public function testInstanceOf()

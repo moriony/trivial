@@ -1,10 +1,10 @@
 <?php
 namespace Moriony\Trivial\Converter;
 
-use Moriony\Trivial\Exception\InvalidUnit;
+use Moriony\Trivial\Exception\InvalidUnitException;
 use Moriony\Trivial\Math\MathInterface;
 
-class Weight implements UnitConverterInterface
+class WeightConverter implements UnitConverterInterface
 {
     const G = 'g';
     const KG = 'kg';
@@ -32,7 +32,7 @@ class Weight implements UnitConverterInterface
             case self::LB:
                 return $this->math->mul($normalized, 2.204623);
             default:
-                throw new InvalidUnit(sprintf("Unsupported unit '%s'", $toUnit));
+                throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $toUnit));
         }
     }
 
@@ -48,7 +48,7 @@ class Weight implements UnitConverterInterface
             case self::LB:
                 return $this->math->div($value, 2.204623);
             default:
-                throw new InvalidUnit(sprintf("Unsupported unit '%s'", $unit));
+                throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $unit));
         }
     }
 }

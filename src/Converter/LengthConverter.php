@@ -1,10 +1,10 @@
 <?php
 namespace Moriony\Trivial\Converter;
 
-use Moriony\Trivial\Exception\InvalidUnit;
+use Moriony\Trivial\Exception\InvalidUnitException;
 use Moriony\Trivial\Math\MathInterface;
 
-class Length implements UnitConverterInterface
+class LengthConverter implements UnitConverterInterface
 {
     const M = 'm';
     const KM = 'km';
@@ -47,7 +47,7 @@ class Length implements UnitConverterInterface
             case self::MI:
                 return $this->math->mul($normalized, 0.000621);
             default:
-                throw new InvalidUnit(sprintf("Unsupported unit '%s'", $toUnit));
+                throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $toUnit));
         }
     }
 
@@ -73,7 +73,7 @@ class Length implements UnitConverterInterface
             case self::MI:
                 return $this->math->mul($value, $this->math->div(1, 0.000621));
             default:
-                throw new InvalidUnit(sprintf("Unsupported unit '%s'", $unit));
+                throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $unit));
         }
     }
 }

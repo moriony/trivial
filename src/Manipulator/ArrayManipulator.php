@@ -3,9 +3,9 @@
 namespace Moriony\Trivial\Manipulator;
 
 use Closure;
-use Moriony\Trivial\Exception\EmptyArray;
+use Moriony\Trivial\Exception\EmptyArrayException;
 
-class Arrays
+class ArrayManipulator
 {
     /**
      * Group values from array according to the results of a closure
@@ -41,12 +41,12 @@ class Arrays
      *
      * @param array $array
      * @return mixed
-     * @throws EmptyArray
+     * @throws EmptyArrayException
      */
     public function randomElement(array $array)
     {
         if (!$array) {
-            throw new EmptyArray;
+            throw new EmptyArrayException;
         }
         return $array[rand(0, count($array) - 1)];
     }

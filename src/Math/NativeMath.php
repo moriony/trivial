@@ -2,7 +2,7 @@
 
 namespace Moriony\Trivial\Math;
 
-class Native implements MathInterface
+class NativeMath implements MathInterface
 {
     public function mul($a, $b)
     {
