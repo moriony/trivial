@@ -4,7 +4,7 @@ namespace Moriony\Trivial\Converter;
 use Moriony\Trivial\Exception\InvalidUnitException;
 use Moriony\Trivial\Math\MathInterface;
 
-class CapacityConverter implements UnitConverterInterface
+class VolumeConverter implements UnitConverterInterface
 {
     const ML = 'ml';
     const L = 'l';
