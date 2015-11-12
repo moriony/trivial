@@ -3,20 +3,10 @@ namespace Moriony\Trivial\Converter;
 
 use Moriony\Trivial\Exception\InvalidUnitException;
 use Moriony\Trivial\Math\MathInterface;
+use Moriony\Trivial\Unit\VolumeUnits;
 
 class VolumeConverter implements UnitConverterInterface
 {
-    const ML = 'ml';
-    const L = 'l';
-    const MM3 = 'mm3';
-    const CM3 = 'cm3';
-    const M3 = 'm3';
-    const IN3 = 'in3';
-    const FT3 = 'ft3';
-    const YD3 = 'yd3';
-    const GAL_UK = 'galUK';
-    const GAL_US = 'galUS';
-
     protected $math;
 
     public function __construct(MathInterface $math)
@@ -29,24 +19,24 @@ class VolumeConverter implements UnitConverterInterface
         $normalized = $this->normalize($value, $fromUnit);
 
         switch ($toUnit){
-            case self::L:
+            case VolumeUnits::L:
                 return $normalized;
-            case self::ML:
-            case self::CM3:
+            case VolumeUnits::ML:
+            case VolumeUnits::CM3:
                 return $this->math->div($normalized, 0.001);
-            case self::MM3:
+            case VolumeUnits::MM3:
                 return $this->math->div($normalized, 0.000001);
-            case self::M3:
+            case VolumeUnits::M3:
                 return $this->math->div($normalized, 1000);
-            case self::IN3:
+            case VolumeUnits::IN3:
                 return $this->math->div($normalized, 0.0163871);
-            case self::FT3:
+            case VolumeUnits::FT3:
                 return $this->math->div($normalized, 28.3168);
-            case self::YD3:
+            case VolumeUnits::YD3:
                 return $this->math->div($normalized, 764.555);
-            case self::GAL_UK:
+            case VolumeUnits::GAL_UK:
                 return $this->math->div($normalized, 4.54609);
-            case self::GAL_US:
+            case VolumeUnits::GAL_US:
                 return $this->math->div($normalized, 3.78541);
             default:
                 throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $toUnit));
@@ -56,24 +46,24 @@ class VolumeConverter implements UnitConverterInterface
     private function normalize($value, $unit)
     {
         switch ($unit){
-            case self::L:
+            case VolumeUnits::L:
                 return $value;
-            case self::ML:
-            case self::CM3:
+            case VolumeUnits::ML:
+            case VolumeUnits::CM3:
                 return $this->math->mul($value, 0.001);
-            case self::MM3:
+            case VolumeUnits::MM3:
                 return $this->math->mul($value, 0.000001);
-            case self::M3:
+            case VolumeUnits::M3:
                 return $this->math->mul($value, 1000);
-            case self::IN3:
+            case VolumeUnits::IN3:
                 return $this->math->mul($value, 0.0163871);
-            case self::FT3:
+            case VolumeUnits::FT3:
                 return $this->math->mul($value, 28.3168);
-            case self::YD3:
+            case VolumeUnits::YD3:
                 return $this->math->mul($value, 764.555);
-            case self::GAL_UK:
+            case VolumeUnits::GAL_UK:
                 return $this->math->mul($value, 4.54609);
-            case self::GAL_US:
+            case VolumeUnits::GAL_US:
                 return $this->math->mul($value, 3.78541);
             default:
                 throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $unit));

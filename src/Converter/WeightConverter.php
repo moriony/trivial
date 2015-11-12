@@ -3,14 +3,10 @@ namespace Moriony\Trivial\Converter;
 
 use Moriony\Trivial\Exception\InvalidUnitException;
 use Moriony\Trivial\Math\MathInterface;
+use Moriony\Trivial\Unit\WeightUnits;
 
 class WeightConverter implements UnitConverterInterface
 {
-    const G = 'g';
-    const KG = 'kg';
-    const OZ = 'oz';
-    const LB = 'lb';
-
     protected $math;
 
     public function __construct(MathInterface $math)
@@ -23,13 +19,13 @@ class WeightConverter implements UnitConverterInterface
         $normalized = $this->normalize($value, $fromUnit);
 
         switch ($toUnit){
-            case self::G:
+            case WeightUnits::G:
                 return $this->math->mul($normalized, 1000);
-            case self::KG:
+            case WeightUnits::KG:
                 return $normalized;
-            case self::OZ:
+            case WeightUnits::OZ:
                 return $this->math->mul($normalized, 35.273369);
-            case self::LB:
+            case WeightUnits::LB:
                 return $this->math->mul($normalized, 2.204623);
             default:
                 throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $toUnit));
@@ -39,13 +35,13 @@ class WeightConverter implements UnitConverterInterface
     private function normalize($value, $unit)
     {
         switch ($unit) {
-            case self::G:
+            case WeightUnits::G:
                 return $this->math->div($value, 1000);
-            case self::KG:
+            case WeightUnits::KG:
                 return $value;
-            case self::OZ:
+            case WeightUnits::OZ:
                 return $this->math->div($value, 35.273369);
-            case self::LB:
+            case WeightUnits::LB:
                 return $this->math->div($value, 2.204623);
             default:
                 throw new InvalidUnitException(sprintf("Unsupported unit '%s'", $unit));
